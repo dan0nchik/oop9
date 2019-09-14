@@ -1,0 +1,7 @@
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\bin\Debug\Практика1.exe.config
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\bin\Debug\Практика1.exe
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\bin\Debug\Практика1.pdb
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\obj\Debug\Практика1.csprojAssemblyReference.cache
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\obj\Debug\Практика1.csproj.CoreCompileInputs.cache
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\obj\Debug\Практика1.exe
+C:\Users\Daniel Khromov\ООП 9 Класс\Практика\Практика1\obj\Debug\Практика1.pdb
