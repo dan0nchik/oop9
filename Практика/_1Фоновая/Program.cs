@@ -15,8 +15,8 @@ namespace _1Фоновая
              Console.Write("c:");
              int c = int.Parse(Console.ReadLine());
              double c1 = (double)c;
-            double result = Math.Pow((c + b), 1 / 3) + Math.Sin(a / 4) + Math.Sqrt((a + b + 4) / 2) + Math.Pow(c, 2);
-             Console.WriteLine("{0:F2}", result);
+            double result = Math.Pow((c + b), 1.0 / 3) + Math.Sin(a / 4) + Math.Sqrt((a + b + 4.0) / 2) + Math.Pow(c, 2);
+             Console.WriteLine("{0:F}", result);
              Console.ReadKey(); 
         }
     }
