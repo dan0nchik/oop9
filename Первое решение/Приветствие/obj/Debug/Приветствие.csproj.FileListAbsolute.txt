@@ -1,7 +1,0 @@
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\bin\Debug\Приветствие.exe.config
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\bin\Debug\Приветствие.exe
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\bin\Debug\Приветствие.pdb
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\obj\Debug\Приветствие.csprojAssemblyReference.cache
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\obj\Debug\Приветствие.csproj.CoreCompileInputs.cache
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\obj\Debug\Приветствие.exe
-C:\Users\Daniel Khromov\ООП 9 Класс\Первое решение\Приветствие\obj\Debug\Приветствие.pdb
