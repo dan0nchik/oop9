@@ -10,6 +10,13 @@ namespace Практика2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(int.Parse(Console.ReadLine()) <= 9 ? "Yes" : "No");
+            Console.ReadKey();
+
+           
+
+
+            
         }
     }
 }
