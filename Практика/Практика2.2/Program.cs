@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Практика2._2
 {
@@ -14,9 +11,12 @@ namespace Практика2._2
             int x = int.Parse(Console.ReadLine());
             if (x == 29) { Console.WriteLine("ПОПАЛ!"); }
             if (x >= 30) { Console.WriteLine("ПЕРЕЛЕТ"); }
-            if (x <= 28) { Console.WriteLine("НЕДОЛЕТ!"); }
-            if (x <= 0) { Console.WriteLine("Не бей по своим!"); }
+            else if (x >= 0) {
+                Console.WriteLine("НЕДОЛЕТ!"); 
+         
+            }
+            if (x <= 0) { Console.WriteLine("Не бей по своим!"); } 
             Console.ReadKey();
- }
+        }
     }
 }
