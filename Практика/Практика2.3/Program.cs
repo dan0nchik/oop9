@@ -13,23 +13,15 @@ namespace Практика2._3
            switch (Console.ReadLine())
             {
                 case "a":
-                    Console.Write("Vovel");
-                    break;
                 case "e":
-                    Console.Write("Vovel");
-                    break;
                 case "i":
-                    Console.Write("Vovel");
-                    break;
                 case "o":
-                    Console.Write("Vovel"); 
-                    break;
                 case "u":
-                    Console.Write("Vovel");
-                    break;
                 case "y":
-                    Console.Write("Vovel");
+
+                Console.Write("Vovel");
                     break;
+         
                 default:
                     Console.Write("Consonant");
                     break;
