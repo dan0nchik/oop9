@@ -18,7 +18,6 @@ namespace Практика2._3
                 case "o":
                 case "u":
                 case "y":
-
                 Console.Write("Vovel");
                     break;
          
