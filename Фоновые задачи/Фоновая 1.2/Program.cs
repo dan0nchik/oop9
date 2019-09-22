@@ -6,9 +6,11 @@ namespace Фоновая_1._2
     {
         private static void Main(string[] args)
         {
+            
             // вариант 7
-            double x = double.Parse(Console.ReadLine()), y = double.Parse(Console.ReadLine());
+            Console.Write("Enter X:"); double x = double.Parse(Console.ReadLine()); Console.Write("Enter Y:"); double y = double.Parse(Console.ReadLine());
             double U = 0.0;
+
             //проверка на попадание в D
             //1.08627804912002
             if (y * y + x * x <= 1.0)
@@ -34,7 +36,7 @@ namespace Фоновая_1._2
 
             else U = x / Math.Pow(y, 2.0);
 
-            Console.WriteLine(U);
+            Console.WriteLine("Here is your result: {0:N4}",U);
             Console.ReadKey();
         }
     }
