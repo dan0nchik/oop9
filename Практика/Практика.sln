@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика2.3", "Пр
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика_доп", "Практика_доп\Практика_доп.csproj", "{BCDA15E7-B407-4EB0-8099-8A8FA40503D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика3.1", "Практика3.1\Практика3.1.csproj", "{A4671F79-315E-48B5-9F45-BE79C522243C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика3", "Практика3.1\Практика3.csproj", "{A4671F79-315E-48B5-9F45-BE79C522243C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
