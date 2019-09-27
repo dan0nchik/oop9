@@ -27,11 +27,12 @@ namespace Практика3
 
         private static void _2()
         {
-            for (int a = 1; a <= 7; a++)
+            int a =1 , b = 2, c = 3;
+            for (a = 1 ; a <= 7; a++)
             {
-                for (int b = 2; b <= 8; b++)
+                for (b = 2 ; b <= 8; b++)
                 {
-                    for (int c = 3; c <= 9; c++)
+                    for (c = 3; c <= 9; c++)
                     {
                         Console.WriteLine($"{a}{b}{c}");
                         
@@ -42,21 +43,31 @@ namespace Практика3
                 он не дает их увеличить потому что они относятся к for'ам, 
                 возможно это ограничение c#. Я пробовал с while в for, и просто несколько while, 
                 но тогда он выводит только с 123 по 129*/
-               
+                b++;
+                c++;
             }
 
             }
 
         private static void _3()
         {
-           
-
+            for(int a = 1; a <= 9; a++)
+            {
+                for(int b = 0; b <= 9; b++)
+                {
+                    for(int c = 0; c <= 9; c++)
+                    {
+                        Console.WriteLine($"{a}{b}{c}");
+                    }
+                }
+            }
         }
 
         private static void Main()
         {
             //PifagorTable();
             _2();
+            //_3();
             Console.ReadKey();
         }
     }
