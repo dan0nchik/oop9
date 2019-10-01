@@ -35,8 +35,8 @@ namespace Практика_4
 
         private static void Main(string[] args)
         {  
-            double a = int.Parse(Console.ReadLine()), b = int.Parse(Console.ReadLine());
-            double resultFromMin = Min(a, b + 1.0, Math.Abs(a) + 1.0);
+            int a = int.Parse(Console.ReadLine()), b = int.Parse(Console.ReadLine());
+            double resultFromMin = Min(a, b + 1.0, Math.Abs(a) + 1.0);  
             double result = Max(Math.Sqrt(resultFromMin), Max(a, b + Min(a, b, 0.0))) - Min(Math.Sqrt(a + 1.0), (b + 5.0) / (2.0 + a * a), a + b);
             Console.WriteLine("{0:G2}", result); 
             Console.ReadKey();
