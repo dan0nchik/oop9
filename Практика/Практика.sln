@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика 4", "Пр�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика 5", "Практика 5\Практика 5.csproj", "{514D9819-C44E-4F22-9D3C-5F5F349FD6FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Таблица", "Таблица\Таблица.csproj", "{DBE227F9-4583-4694-9438-EABC894F3BC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{514D9819-C44E-4F22-9D3C-5F5F349FD6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{514D9819-C44E-4F22-9D3C-5F5F349FD6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{514D9819-C44E-4F22-9D3C-5F5F349FD6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE227F9-4583-4694-9438-EABC894F3BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE227F9-4583-4694-9438-EABC894F3BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE227F9-4583-4694-9438-EABC894F3BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE227F9-4583-4694-9438-EABC894F3BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
