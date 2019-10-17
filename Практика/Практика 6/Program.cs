@@ -55,14 +55,14 @@ namespace Практика_6
         }
         static void _4(int N)
         {
-            int m = 0, j = 0, k = 1;
+            int m = 0, k = 1;
            while(N > 0)
             {
                 int a = N % 10;
                 if (a != 3)
                 {
-                    m = m + k * a;
-                    k = k * 10;
+                    m += k * a;
+                    k *= 10;
                 }
                 
                 N /= 10;
@@ -89,6 +89,34 @@ namespace Практика_6
             //я хотел сделать так, что если второй for проходил без брейков, то выводилось i. 
             //Я не знаю как проверить for на полное прохождение.
         }
+
+        static void extra(int N)
+        {   
+            int n = 0, p = 0;
+            while (N > 0) {
+                int a = N % 10;
+                n = n * 10 + a;
+                N /= 10;
+                }
+
+            Console.WriteLine(n);
+                while(n > 0)
+            { 
+                int k = n % 10;
+                //Console.WriteLine($"k:{k}");          Тесты :)
+                n /= 10;
+                int h = -(n % 10);
+                //Console.WriteLine($"h:{h}");
+                p += k + h;
+                //Console.WriteLine($"p:{p}");
+                n /= 10;
+            }
+
+            Console.WriteLine(p);
+        }
+
+
+
         static void Main(string[] args)
         {      //2 вариант
 
@@ -97,11 +125,17 @@ namespace Практика_6
             int c = a % b;
             Console.WriteLine(c);
             Знак остатка от деления зависит от */
-            int N = int.Parse(Console.ReadLine());
-            _1(N);
-            int p = int.Parse(Console.ReadLine()), j = int.Parse(Console.ReadLine());
-            _5(p, j);
 
+
+
+            int N = int.Parse(Console.ReadLine());
+            extra(N);
+
+
+
+            /*int p = int.Parse(Console.ReadLine()), j = int.Parse(Console.ReadLine());
+            _5(p, j);*/
+            
             Console.ReadKey();
         }
     }
