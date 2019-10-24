@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Таблица", "Табл�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика 6", "Практика 6\Практика 6.csproj", "{A8C9C46A-C0F3-498E-9F07-E3B90A4DFBC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olimp", "Olimp\Olimp.csproj", "{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{A8C9C46A-C0F3-498E-9F07-E3B90A4DFBC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C9C46A-C0F3-498E-9F07-E3B90A4DFBC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C9C46A-C0F3-498E-9F07-E3B90A4DFBC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

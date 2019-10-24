@@ -7,31 +7,23 @@ using System.Threading.Tasks;
 namespace Практика_5
 {
     class Program
-    {   static void MinMax(int N)
+    {   static int NumberOfExtremum(int N)
         {
-            int max = int.MinValue, min = int.MaxValue, k = 0, j = 0;
-            for(int i = 1; i <= N; i++)
+
+            int max = int.MinValue;
+
+            for (int i = 1; i <= N - 1; i++)
             {
                 int a = int.Parse(Console.ReadLine());
-                if(a > max)
-                {
-                    max = a;
-                    k = i;          
-                }
-                if(a < min)
-                {
-                    min = a;
-                    j = i;
-                    
-                }
+                if (a > max) max = a;
             }
-            Console.WriteLine($"PLACE OF MAX = {k}   PLACE OF MIN = {j}");
-            
-        }
-        static void Main(string[] args)
+            return max;
+        }  
+        
+        static void Main()
         {
             int N = int.Parse(Console.ReadLine());
-            MinMax(N);
+            NumberOfExtremum(N);
             Console.ReadKey();
         }
         
