@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика 6", "Пр�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olimp", "Olimp\Olimp.csproj", "{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практика7", "Практика7\Практика7.csproj", "{38339FC0-3694-46E0-BD39-A77159DC589A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E18F53AF-BD06-49B9-A3BB-9FBF4A1164A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38339FC0-3694-46E0-BD39-A77159DC589A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38339FC0-3694-46E0-BD39-A77159DC589A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38339FC0-3694-46E0-BD39-A77159DC589A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38339FC0-3694-46E0-BD39-A77159DC589A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

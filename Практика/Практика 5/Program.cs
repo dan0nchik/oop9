@@ -10,21 +10,33 @@ namespace Практика_5
     {   static int NumberOfExtremum(int N)
         {
 
-            int max = int.MinValue;
-
-            for (int i = 1; i <= N - 1; i++)
+            int max = int.MinValue, min = int.MaxValue;
+            int a, kMax = 0, kMin = 0;
+            for (int i = 1; i <= N; i++)
             {
-                int a = int.Parse(Console.ReadLine());
-                if (a > max) max = a;
+                a = int.Parse(Console.ReadLine());
+                if (a > max)
+                {
+                    max = a;
+                    kMax = i;
+                }
+                if(a < min)
+                {
+                    min = a;
+                    kMin = i;
+                }
             }
-            return max;
+            if (kMin > kMax) return kMin;
+            else return kMax;
+
         }  
         
         static void Main()
         {
             int N = int.Parse(Console.ReadLine());
-            NumberOfExtremum(N);
-            Console.ReadKey();
+            
+            Console.WriteLine(NumberOfExtremum(N));
+               Console.ReadKey();
         }
         
     }

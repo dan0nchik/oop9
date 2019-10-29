@@ -20,30 +20,11 @@ namespace Практика_6
             if (k == 0) return 0;
             else return k;
         }
-
-        static int Extra(int q, int p)
-        {
-            for (int i = 2; i < q; i++)
-            {
-
-                if (q % i == 0)
-                {
-                    int k = 0;
-                    for (int j = 2; j < p; j++)
-                    {
-                        if (p % j == 0 && i == j) k++;
-                    }
-                    if (k == 0) Console.WriteLine(i);
-                    else Console.WriteLine("NO");
-                }
-            }
-            return 0;
-        }
-
+        
         static void Main()
         {      //2 вариант
-            int N = int.Parse(Console.ReadLine()); //q = int.Parse(Console.ReadLine()); ;
-            Console.WriteLine(SummaCifrNeKratnych3(N));
+            int N = int.Parse(Console.ReadLine());//, q = int.Parse(Console.ReadLine()); ;
+            Console.WriteLine(Delitel(N));
             Console.ReadKey();
         }
     }
