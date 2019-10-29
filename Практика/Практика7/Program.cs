@@ -22,14 +22,27 @@ namespace Практика7
 
         static short ZnachenieBita(short X, short N)
         {
-           
-            
+            short mask = (byte)(1 << N); 
+            if ((mask & 1) == 0) return 1;
+            else return 0;
+        }
+        static void Binary(byte N)
+        {
+            byte mask = (byte)(1 << N);
+            for (byte i = 0; i < 8; i++)
+            {
+                if ((mask & 1) == 0) Console.Write(1);
+                else Console.Write(0);
+            }
+
         }
         static void Main(string[] args)
         {
-            short X = short.Parse(Console.ReadLine()), N = short.Parse(Console.ReadLine());
-            Console.WriteLine(ZnachenieBita(X, N));
+            //short X = short.Parse(Console.ReadLine()), N = short.Parse(Console.ReadLine());
+            byte N = byte.Parse(Console.ReadLine());
+            Binary(N);
             Console.ReadKey();
+                
         }
     }
 }
