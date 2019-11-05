@@ -23,8 +23,8 @@ namespace Практика7
         static short ZnachenieBita(short X, short N)
         {
             short mask = (byte)(1 << N); 
-            if ((mask & 1) == 0) return 1;
-            else return 0;
+            if ((mask & X) == 0) return 0;
+            else return 1;
         }
         static void Binary(byte N)
         {
@@ -37,9 +37,10 @@ namespace Практика7
         }
         static void Main(string[] args)
         {
-            //short X = short.Parse(Console.ReadLine()), N = short.Parse(Console.ReadLine());
-            byte N = byte.Parse(Console.ReadLine());
-            Binary(N);
+            short X = short.Parse(Console.ReadLine()), N = short.Parse(Console.ReadLine());
+            byte K = byte.Parse(Console.ReadLine());
+            Console.WriteLine(ZnachenieBita(X, N));
+            Binary(K);
             
             Console.ReadKey();
                 

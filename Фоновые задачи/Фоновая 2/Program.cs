@@ -10,7 +10,7 @@ namespace Фоновая_2
     {
 
 
-        static void NoZeroBit(uint x1)
+        static void ZeroBit(uint x1)
         {
             int k = 0;
             for (byte i = 0; i < 15; i++)
@@ -30,16 +30,13 @@ namespace Фоновая_2
             uint x1 = uint.Parse(Console.ReadLine()), n = uint.Parse(Console.ReadLine());
             int x2 = int.Parse(Console.ReadLine());
             //1
-            NoZeroBit(x1);
+            ZeroBit(x1);
 
             //2
             Converter(x2);
 
             //3
-            for(int i = 32; i > 1; i++)
-            {
-
-            }
+            
             Console.ReadKey();
         }
     }
