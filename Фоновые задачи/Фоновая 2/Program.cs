@@ -20,15 +20,29 @@ namespace Фоновая_2
             Console.WriteLine("1: {0}", k);
         }
 
-        static void Converter(int x2)
+        static void Converter(long x2)
         {
-            Console.WriteLine("2: {0}", Convert.ToString(x2, 2));
+            
 
+        }
+        static void Sdvig(uint x1, uint n)
+        {
+            
+            byte mask = 0b_00000000000000000000000000000001;
+            
+            for(byte i = 0, x = 0; i < n; i++)
+            {
+                if ((x1 & mask) == 0) x += 1;
+                x1 = x1 >> 1;
+                x1 = x & x1;
+            }
+            
+            Console.WriteLine("3: {0}", x1);
         }
         static void Main(string[] args)
         {
             uint x1 = uint.Parse(Console.ReadLine()), n = uint.Parse(Console.ReadLine());
-            int x2 = int.Parse(Console.ReadLine());
+            long x2 = long.Parse(Console.ReadLine());
             //1
             ZeroBit(x1);
 
@@ -36,7 +50,7 @@ namespace Фоновая_2
             Converter(x2);
 
             //3
-            
+            Sdvig(x1, n);
             Console.ReadKey();
         }
     }
