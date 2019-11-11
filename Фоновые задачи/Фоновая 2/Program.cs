@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Фоновая_2
 {
@@ -18,40 +14,88 @@ namespace Фоновая_2
                 if ((x1 & (1 << i)) != (i << 1)) k++;
             }
             Console.WriteLine("1: {0}", k);
+
         }
 
-        static void Converter(long x2)
-        {
-            
+        /* static void Converter(int x2)
+         {
+             Console.Write("2: ");
 
+             bool check = false;
+             for (uint i = 0x80000000; i >= 0; i>>=1)
+             {
+                 if (((x2 >> i) & 1) != 0)
+                 {
+
+
+                     Console.Write("1"); check = true;
+                 }
+                 if(check == true)
+                     Console.Write("0");
+             }
+
+
+         }*/
+
+            /*for (int i = 7; i >= 0; i--)
+            {
+                if (((byte)(a >> i) & 1) == 1)
+                    Console.Write("1");
+                else
+                    Console.Write("0");
+            }
+*/
+
+            static int KolichestvoJ(uint x1)
+        {
+            int j = 0;
+            for(int i = 31; i >= 0; i--)
+            {
+                if(((x1 >> i) & 1) == 1)
+                break;
+                j++;
+            }   
+                return j;
         }
         static void Sdvig(uint x1, uint n)
         {
+            uint mask = 0;
+            uint mask2 = 0b00000000000000000000000000000001;
             
-            byte mask = 0b_00000000000000000000000000000001;
-            
-            for(byte i = 0, x = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                if ((x1 & mask) == 0) x += 1;
-                x1 = x1 >> 1;
-                x1 = x & x1;
+                if ((mask2 & x1) == 1)
+                { 
+                    Console.Write("1");
+                }
+                else Console.Write("0");
+                x1 >>= 1;
             }
-            
-            Console.WriteLine("3: {0}", x1);
+            int j;
+            for (j = KolichestvoJ(x1); j >= 0; j--)
+            {
+                if (((byte)(x1 >> j) & 1) == 1)
+                    Console.Write("1");
+                else
+                    Console.Write("0");
+            }
+                
         }
         static void Main(string[] args)
         {
             uint x1 = uint.Parse(Console.ReadLine()), n = uint.Parse(Console.ReadLine());
-            long x2 = long.Parse(Console.ReadLine());
+            int x2 = int.Parse(Console.ReadLine());
             //1
             ZeroBit(x1);
 
             //2
-            Converter(x2);
+            //Converter(x2);
 
             //3
             Sdvig(x1, n);
+            
             Console.ReadKey();
+           
         }
     }
 }
