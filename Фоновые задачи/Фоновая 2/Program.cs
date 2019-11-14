@@ -17,18 +17,16 @@ namespace Фоновая_2
 
         }
 
-        /* static void Converter(int x2)
+        /*static void Converter(int x2)
          {
              Console.Write("2: ");
 
              bool check = false;
-             for (uint i = 0x80000000; i >= 0; i>>=1)
+             for (int i = 0x8000000; i >= 0; i>>=1)
              {
                  if (((x2 >> i) & 1) != 0)
                  {
-
-
-                     Console.Write("1"); check = true;
+                    Console.Write("1"); check = true;
                  }
                  if(check == true)
                      Console.Write("0");
@@ -51,8 +49,10 @@ namespace Фоновая_2
             int j = 0;
             for(int i = 31; i >= 0; i--)
             {
-                if(((x1 >> i) & 1) == 1)
-                break;
+                if (((x1 >> i) & 1) == 1)
+                {
+                    break;
+                }
                 j++;
             }   
                 return j;
