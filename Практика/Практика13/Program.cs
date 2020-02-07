@@ -54,15 +54,15 @@ namespace Практика13
                 Console.Write("Введите нач. координату z: ");
                 z = int.Parse(Console.ReadLine());
                 point = new Point3D(x, y, z);
-                point.Move();
-                point.Output();
+
             }
             else
             {
                 point = new Point3D();
-                point.Move();
-                point.Output();
             }
+            point.Move();
+            point.Output();
+
             Console.ReadKey();
         }
     }
