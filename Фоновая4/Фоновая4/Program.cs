@@ -48,9 +48,11 @@ namespace Фоновая4
         
         static void Main(string[] args)
         {
-            TheIlluminati pyramid = new TheIlluminati();
+            TheIlluminati pyramid;
+                
+              
             double hight, ground;
-            Console.WriteLine("Совершить действия со своими значениями - введите 1, или нажмите 2");
+            Console.WriteLine("Создать объект со своими значениями - введите 1, или нажмите 2");
 
             int input = int.Parse(Console.ReadLine());
             if (input == 1)
@@ -61,7 +63,10 @@ namespace Фоновая4
                 ground = double.Parse(Console.ReadLine());
                 pyramid = new TheIlluminati(hight, ground);
             }
-            
+            else
+            {
+                pyramid = new TheIlluminati();
+            }
                 Console.WriteLine($"Высота пирамиды: {pyramid.GetHeight()} см");
                 Console.WriteLine($"Основание пирамиды: {pyramid.GetGround()} см");
                 Console.WriteLine($"Периметр пирамиды: {pyramid.Perimeter()} см");
