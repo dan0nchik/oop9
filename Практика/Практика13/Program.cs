@@ -8,9 +8,9 @@ namespace Практика13
 {
     public class Point3D
     {
-        public int x;
-        public int y;
-        public int z;
+        private int x;
+        private int y;
+        private int z;
         public Point3D()
         {
             x = 0;
@@ -25,12 +25,31 @@ namespace Практика13
         }
         public void Move()
         {
-            Console.Write("Введите расстояние по оси х: ");
-            x += int.Parse(Console.ReadLine());
-            Console.Write("Введите расстояние по оси y: ");
-            y += int.Parse(Console.ReadLine());
-            Console.Write("Введите расстояние по оси z: ");
-            z += int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите ось: ");
+            if (Console.ReadLine().Contains("x"))
+            {
+                this.x += int.Parse(Console.ReadLine());
+            }
+            if (Console.ReadLine().Contains("y"))
+            {
+                this.y += int.Parse(Console.ReadLine());
+            }
+            if (Console.ReadLine().Contains("z"))
+            {
+                this.z += int.Parse(Console.ReadLine());
+            }
+
+
+        }
+        public double Radius()
+        { 
+            return Math.Sqrt(Math.Pow (this.x, 2) + Math.Pow(this.y, 2) + Math.Pow(this.z, 2));
+        }
+        public void Sum(Point3D obj)
+        {
+            this.x += obj.x;
+            this.y += obj.y;
+            this.z += obj.z;
         }
         public void Output()
         {
@@ -44,8 +63,9 @@ namespace Практика13
         {
             Point3D point;
             int x, y, z;
-            Console.WriteLine("Выберите режим: стандартные оси(1) или заданные координаты(2): ");
-            if (int.Parse(Console.ReadLine()) == 2)
+            Console.WriteLine("Выберите режим: стандартные оси(1) или заданные координаты(2); сложение 2х точек - 3, 4 - радиус: ");
+            int input = int.Parse(Console.ReadLine());
+            if (input == 2)
             {
                 Console.Write("Введите нач. координату х: ");
                 x = int.Parse(Console.ReadLine());
@@ -54,15 +74,33 @@ namespace Практика13
                 Console.Write("Введите нач. координату z: ");
                 z = int.Parse(Console.ReadLine());
                 point = new Point3D(x, y, z);
-
+                point.Move();
+                point.Output();
+               
             }
             else
             {
                 point = new Point3D();
+                point.Output();
             }
-            point.Move();
-            point.Output();
-
+            
+            if(input == 3)
+            {
+                
+                Console.Write("Введите нач. координату х: ");
+                x = int.Parse(Console.ReadLine());
+                Console.Write("Введите нач. координату y: ");
+                y = int.Parse(Console.ReadLine());
+                Console.Write("Введите нач. координату z: ");
+                z = int.Parse(Console.ReadLine());
+                Point3D point2 = new Point3D(x, y, z);
+                point.Sum(point2);
+                point.Output();
+            }
+            if(input == 4)
+            {
+               Console.WriteLine("Радиус: " + point.Radius());
+            }
             Console.ReadKey();
         }
     }
