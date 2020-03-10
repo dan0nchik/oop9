@@ -11,11 +11,28 @@ namespace Практика13
         private int x;
         private int y;
         private int z;
+
+        public static Point3D CreateFor5(int x, int y, int z)
+        {
+            try
+            {
+                if (x % 5 != 0 || y % 5 != 0||z % 5 != 0){
+                    throw new Exception("Введена координата, не кратная 5, вызывается конструктор по умолчанию");
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Ошибка: {0}", error.Message);
+                return new Point3D();
+            }
+            return new Point3D(x, y, z);
+        }
+
         public Point3D()
         {
-            x = 0;
-            y = 0;
-            z = 0;
+            x = 5;
+            y = 5;
+            z = 5;
         }
         public Point3D(int x, int y, int z)
         {
@@ -109,7 +126,7 @@ namespace Практика13
         {
             Point3D point;
             int x, y, z;
-            Console.WriteLine("Выберите режим: стандартные оси(1) или заданные координаты(2); сложение 2х точек - 3, 4 - радиус: ");
+            Console.WriteLine("Выберите режим: стандартные оси(1) или заданные координаты(2); сложение 2х точек - 3, 4 - радиус, 5 - создание точки кратной 5: ");
             int input = int.Parse(Console.ReadLine()), input2, num;
             if (input == 2)
             {
@@ -161,7 +178,16 @@ namespace Практика13
             {
                Console.WriteLine("Радиус: " + point.Radius());
             }
-            
+            if (input == 5)
+            {
+                Console.Write("Введите нач. координату х: ");
+                x = int.Parse(Console.ReadLine());
+                Console.Write("Введите нач. координату y: ");
+                y = int.Parse(Console.ReadLine());
+                Console.Write("Введите нач. координату z: ");
+                z = int.Parse(Console.ReadLine());
+                Point3D.CreateFor5(x,y,z);
+            }
             Console.ReadKey();
         }
     }

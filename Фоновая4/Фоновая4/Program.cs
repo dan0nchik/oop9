@@ -12,6 +12,25 @@ namespace Фоновая4
         {
             private double h;
             private double l;
+
+            public static TheIlluminati CreateRight(double h, double l)
+            {
+                try
+                {
+                    if (h < 0 || l < 0)
+                    {
+                        throw new Exception("Введена координата меньше 0, вызывается конструктор по умолчанию");
+                    }
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Ошибка: {0}", error.Message);
+                    return new TheIlluminati();
+                }
+                return new TheIlluminati(h,l);
+            }
+
+
             public TheIlluminati()
             {
                 h = 7;
@@ -111,7 +130,7 @@ namespace Фоновая4
             {
                 get
                 {
-                    return Math.Sqrt(h*h+Math.Pow( GroundDiagonal/2,2));
+                    return Math.Sqrt(h*h+Math.Pow(GroundDiagonal/2,2));
                 }
             }
             public double PyramidSquare
@@ -142,7 +161,7 @@ namespace Фоновая4
                 double height = double.Parse(Console.ReadLine());
                 Console.Write("Введите основание: ");
                 double ground = double.Parse(Console.ReadLine());
-                pyramid = new TheIlluminati(height, ground);
+                pyramid = TheIlluminati.CreateRight(height, ground);
             }
             else pyramid = new TheIlluminati(); 
 
