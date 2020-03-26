@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Фоновая4.1")]
+[assembly: AssemblyTitle("Фоновая4.2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Фоновая4.1")]
+[assembly: AssemblyProduct("Фоновая4.2")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("54743747-f33c-4f79-8c7f-2e74839987a3")]
+[assembly: Guid("796498f4-e934-4bcf-a486-35fef682d45d")]
 
 // Version information for an assembly consists of the following four values:
 //

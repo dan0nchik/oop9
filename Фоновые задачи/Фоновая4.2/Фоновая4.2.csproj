@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54743747-F33C-4F79-8C7F-2E74839987A3}</ProjectGuid>
+    <ProjectGuid>{796498F4-E934-4BCF-A486-35FEF682D45D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Фоновая4._1</RootNamespace>
-    <AssemblyName>Фоновая4.1</AssemblyName>
+    <RootNamespace>Фоновая4._2</RootNamespace>
+    <AssemblyName>Фоновая4.2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая4.1", "Фоновая4.1\Фоновая4.1.csproj", "{54743747-F33C-4F79-8C7F-2E74839987A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL 20.03.20", "SQL 20.03.20.csproj", "{DBFCB1A1-ABC0-474B-8827-920C1B3D3B2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{54743747-F33C-4F79-8C7F-2E74839987A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54743747-F33C-4F79-8C7F-2E74839987A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54743747-F33C-4F79-8C7F-2E74839987A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54743747-F33C-4F79-8C7F-2E74839987A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFCB1A1-ABC0-474B-8827-920C1B3D3B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFCB1A1-ABC0-474B-8827-920C1B3D3B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFCB1A1-ABC0-474B-8827-920C1B3D3B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFCB1A1-ABC0-474B-8827-920C1B3D3B2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EB18E9F7-47BE-4BB8-8BC8-52C854BA49DE}
+		SolutionGuid = {7889EF0C-3D76-4DC4-BA3A-7E565FA58BA3}
 	EndGlobalSection
 EndGlobal
