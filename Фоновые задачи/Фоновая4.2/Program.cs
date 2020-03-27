@@ -253,10 +253,12 @@ namespace Фоновая4._1
 
         public void Output()
         {
+            foreach (int i in temperature) Console.Write(i + " ");
             Console.WriteLine((Months)Enum.GetValues(typeof(Months)).GetValue(month - 1));
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(" Пн \t Вт \t Ср \t Чт \t Пт \t Сб \t Вс \t");
             Console.ResetColor();
+            Console.WriteLine(day);
             int count = 1, j = day - 1;
             for (int i = 0; i < temperature.GetLength(0); i++)
             {
@@ -320,7 +322,7 @@ namespace Фоновая4._1
             if (input == 4)
             {
                 weather.MaxTempDiff(out int maxDay, out int temp, out int maxTemp);
-                Console.WriteLine($"День: {maxDay}, температура: {temp}, скачок: {maxTemp}")
+                Console.WriteLine($"День: {maxDay}, температура: {temp}, скачок: {maxTemp}");
             }
             if (input == 5) Console.WriteLine($"Кол-во дней: {weather.GetNumOfDays}");
             if (input == 6) Console.WriteLine($"Эти дни: {weather.WhenTempEqualsZero}");
