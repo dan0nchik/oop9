@@ -38,10 +38,10 @@ namespace Фоновая4._1
         public MatrixWeather(int month, int day)
         {
             this.month = month;
-            this.day = day;
+            this.day = 1;
             temperature = new int[6, 7];
-            GetDay = day;
             GenTemp(month, temperature, monthAr);
+            GetDay = day;
         }
 
         private static int[,] GenTemp(int month, int[,] diary, int[] days)
@@ -155,9 +155,14 @@ namespace Фоновая4._1
                             {
                                 for (int i = 0; i < temperature.GetLength(0); i++)
                                 {
-                                    if (i != 0) temperature[i - 1, temperature.GetLength(1) - 1] = temperature[i, 0];
+                                    if (i != 0)
+                                    {
+                                        temperature[i - 1, temperature.GetLength(1) - 1] = temperature[i, 0];
+                                    }
                                     for (int j = 0; j < temperature.GetLength(0); j++)
+                                    {
                                         temperature[i, j] = temperature[i, j + 1];
+                                    }
                                 }
                             }
                         }
@@ -189,6 +194,126 @@ namespace Фоновая4._1
                 {
                     Console.WriteLine(error.Message);
                 }
+            }
+        }
+
+        public static MatrixWeather operator ++(MatrixWeather weather)
+        {
+            int[,] temperature = weather.temperature;
+            for (int z = 0; z < 1; z++)
+            {
+                int temp1 = temperature[0, temperature.GetLength(1) - 1], temp2;
+                for (int i = 0; i < temperature.GetLength(0); i++)
+                {
+                    temp2 = temperature[i, temperature.GetLength(1) - 1];
+                    for (int j = temperature.GetLength(0); j > 0; j--)
+                    {
+                        temperature[i, j] = temperature[i, j - 1];
+                    }
+                    if (i == 0) temperature[0, 0] = -1000;
+                    else
+                    {
+                        temperature[i, 0] = temp1;
+                    }
+                    temp1 = temp2;
+                }
+            }
+            return weather;
+        }
+
+        public static MatrixWeather operator --(MatrixWeather weather)
+        {
+            int[,] temperature = weather.temperature;
+            for (int z = 0; z < 1; z++)
+            {
+                for (int i = 0; i < temperature.GetLength(0); i++)
+                {
+                    if (i != 0) temperature[i - 1, temperature.GetLength(1) - 1] = temperature[i, 0];
+                    for (int j = 0; j < temperature.GetLength(0); j++)
+                        temperature[i, j] = temperature[i, j + 1];
+                }
+            }
+            return weather;
+        }
+
+        public static bool operator >(MatrixWeather weather, MatrixWeather weather2)
+        {
+            if (weather.month > weather2.month) return true;
+            else return false;
+        }
+
+        public static bool operator <(MatrixWeather weather, MatrixWeather weather2)
+        {
+            if (weather.month < weather2.month) return true;
+            else return false;
+        }
+
+        public static bool operator true(MatrixWeather weather)
+        {
+            bool check = true;
+            foreach (var i in weather.temperature)
+            {
+                if (i < 0 && i != -1000) check = false;
+            }
+            return check;
+        }
+
+        public static bool operator false(MatrixWeather weather)
+        {
+            bool check = true;
+            foreach (var i in weather.temperature)
+            {
+                if (i < 0 && i != -1000) check = false;
+            }
+            return check;
+        }
+
+        public static bool operator &(MatrixWeather weather, MatrixWeather weather2)
+        {
+            for (int j = 0, i = 0; j < weather.temperature.GetLength(1) && i < weather2.temperature.GetLength(1); i++, j++)
+            {
+                if (weather.temperature[0, j] != -1000 && weather.temperature[0, i] != -1000)
+                {
+                    if (weather.temperature[0, j] == weather2.temperature[0, i]) return true;
+                    else return false;
+                }
+            }
+            return false;
+        }
+
+        public int this[int week, int day]
+        {
+            set
+            {
+                try
+                {
+                    if (week > 5 || week < 1) throw new Exception("ОШИБКА: такой неделю в месяце нет!");
+                    if (day < 1 || day > monthAr[month - 1]) throw new Exception("ОШИБКА: такого дня нет!");
+                    if (value > 50 || value < -30) throw new Exception("ОШИБКА: температура слишком высокая!");
+                    if (temperature[week - 1, day - 1] == -1000) throw new Exception("ОШИБКА: такого дня нет!");
+                    else
+                    {
+                        temperature[week - 1, day - 1] = value;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Температура изменена!");
+                        Console.ResetColor();
+                    }
+                }
+                catch (Exception error) { Console.WriteLine(error.Message); }
+            }
+            get
+            {
+                try
+                {
+                    if (week > 5 || week < 1) throw new Exception("ОШИБКА: такой неделю в месяце нет!");
+                    if (day < 1 || day > monthAr[month - 1]) throw new Exception("ОШИБКА: такого дня нет!");
+                    if (temperature[week - 1, day - 1] == -1000) throw new Exception("ОШИБКА: такого дня нет!");
+                    else
+                    {
+                        return temperature[week - 1, day - 1];
+                    }
+                }
+                catch (Exception error) { Console.WriteLine(error.Message); return 0; }
             }
         }
 
@@ -253,28 +378,29 @@ namespace Фоновая4._1
 
         public void Output()
         {
-            foreach (int i in temperature) Console.Write(i + " ");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine((Months)Enum.GetValues(typeof(Months)).GetValue(month - 1));
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(" Пн \t Вт \t Ср \t Чт \t Пт \t Сб \t Вс \t");
             Console.ResetColor();
-            Console.WriteLine(day);
-            int count = 1, j = day - 1;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Пн \tВт \tСр \tЧт \tПт \tСб \tВс \t");
+            Console.ResetColor();
+            int count = 1;
             for (int i = 0; i < temperature.GetLength(0); i++)
             {
-                for (; j < temperature.GetLength(1); j++)
+                for (int j = 0; j < temperature.GetLength(1); j++)
                 {
-                    if (temperature[i, j] == -1000) Console.Write("   \t ");
+                    if (temperature[i, j] == -1000) Console.Write(" \t");
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(" " + count);
+                        Console.Write(count + " ");
                         Console.ResetColor();
                         Console.Write(" " + temperature[i, j] + "\t");
                         count++;
                     }
                 }
-                j = 0;
+
                 Console.WriteLine();
             }
         }
@@ -285,31 +411,42 @@ namespace Фоновая4._1
         private static void Main(string[] args)
         {
             MatrixWeather weather;
+            MatrixWeather weather2;
             Console.Write("Конструктор по умолчанию - 1/ с вашими данными - 2: ");
             int input = int.Parse(Console.ReadLine());
 
             if (input == 2)
             {
-                Console.Write("Введите месяц: ");
+                Console.Write("Введите месяц для 1 дневника: ");
                 int month = int.Parse(Console.ReadLine());
-                Console.Write("Введите день: ");
+                Console.Write("Введите день для 1 дневника: ");
                 int day = int.Parse(Console.ReadLine());
                 weather = new MatrixWeather(month, day);
-                weather.GetDay = day;
+                Console.Write("Введите месяц для 2 дневника: ");
+                month = int.Parse(Console.ReadLine());
+                Console.Write("Введите день для 2 дневника: ");
+                day = int.Parse(Console.ReadLine());
+                weather2 = new MatrixWeather(month, day);
             }
             else
             {
                 weather = new MatrixWeather();
+                weather2 = new MatrixWeather();
             }
             weather.Output();
 
-            Console.WriteLine("Хотите изменить: 1 - день, 2 - месяц");
-            Console.Write("Хотите посмотреть: 3 - самый большой скачок температуры, 4 - номер дня когда это произошло и температуру в этот день, 5 - кол-во дней в дневнике, 6 - кол-во дней, когда t = 0: ");
+            Console.WriteLine("Хотите изменить: 1 - день, 2 - месяц, 8 - инкремент дня, 9 - декремент дня");
+            Console.WriteLine("Хотите посмотреть: 3 - самый большой скачок температуры, 4 - номер дня когда это произошло и температуру в этот день");
+            Console.WriteLine("5 - кол-во дней в дневнике, 6 - кол-во дней, когда t = 0: ");
+            Console.WriteLine("Хотите сравнить какой дневник больше - 7, проверить дневник на истинность - 10, сравнить дневники попарно - 11");
+            Console.WriteLine("Получить температуру по заданному вами дню - 12: ");
+            Console.WriteLine("Изменить температуру по заданному вами дню - 13: ");
             input = int.Parse(Console.ReadLine());
             if (input == 1)
             {
                 Console.Write("Введите новый день: ");
                 weather.GetDay = int.Parse(Console.ReadLine());
+
                 weather.Output();
             }
             if (input == 2)
@@ -326,6 +463,50 @@ namespace Фоновая4._1
             }
             if (input == 5) Console.WriteLine($"Кол-во дней: {weather.GetNumOfDays}");
             if (input == 6) Console.WriteLine($"Эти дни: {weather.WhenTempEqualsZero}");
+            if (input == 8)
+            {
+                weather++;
+                weather.Output();
+            }
+            if (input == 9)
+            {
+                weather--;
+                weather.Output();
+            }
+            if (input == 7)
+            {
+                Console.WriteLine(weather > weather2 ? "1 дневник > второго" : "2 дневник > первого");
+            }
+            if (input == 10) Console.WriteLine(weather ? "В дневнике темп. ни разу не опустилась ниже 0 => дневник истинен!" : "Дневник ложен! Температура в нем опускается ниже 0");
+            if (input == 11)
+            {
+                Console.WriteLine("1 дневник:");
+                weather.Output();
+                Console.WriteLine("2 дневник:");
+                weather2.Output();
+                Console.WriteLine($"Результат попарного сравнения: {weather & weather2} (проверяется 1 число в обоих дневниках)");
+            }
+            if (input == 12)
+            {
+                Console.WriteLine("Введите неделю: ");
+                int week = int.Parse(Console.ReadLine());
+                Console.WriteLine("введите день: ");
+                int day = int.Parse(Console.ReadLine());
+                weather.Output();
+                Console.WriteLine($"Температура в этот день: {weather[week, day]}");
+            }
+            if (input == 13)
+            {
+                Console.WriteLine("Введите неделю: ");
+                int week = int.Parse(Console.ReadLine());
+                Console.WriteLine("введите день: ");
+                int day = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите новую температуру: ");
+                int value = int.Parse(Console.ReadLine());
+                weather[week, day] = value;
+                Console.WriteLine("Измененный дневник: ");
+                weather.Output();
+            }
             Console.ReadKey();
         }
     }

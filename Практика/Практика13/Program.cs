@@ -103,7 +103,7 @@ namespace Практика13
         }
 
         public void Move()
-        { 
+        {
             //тут конечно не очень красиво, но функция маленькая очень
             Console.WriteLine("Введите ось, по которой будем сдвигать (x,y или z): ");
             string s = Console.ReadLine();
