@@ -200,8 +200,6 @@ namespace Фоновая4._1
         public static MatrixWeather operator ++(MatrixWeather weather)
         {
             int[,] temperature = weather.temperature;
-            for (int z = 0; z < 1; z++)
-            {
                 int temp1 = temperature[0, temperature.GetLength(1) - 1], temp2;
                 for (int i = 0; i < temperature.GetLength(0); i++)
                 {
@@ -217,22 +215,19 @@ namespace Фоновая4._1
                     }
                     temp1 = temp2;
                 }
-            }
             return weather;
         }
 
         public static MatrixWeather operator --(MatrixWeather weather)
         {
             int[,] temperature = weather.temperature;
-            for (int z = 0; z < 1; z++)
-            {
                 for (int i = 0; i < temperature.GetLength(0); i++)
                 {
                     if (i != 0) temperature[i - 1, temperature.GetLength(1) - 1] = temperature[i, 0];
                     for (int j = 0; j < temperature.GetLength(0); j++)
                         temperature[i, j] = temperature[i, j + 1];
                 }
-            }
+            
             return weather;
         }
 
@@ -260,10 +255,10 @@ namespace Фоновая4._1
 
         public static bool operator false(MatrixWeather weather)
         {
-            bool check = true;
+            bool check = false;
             foreach (var i in weather.temperature)
             {
-                if (i < 0 && i != -1000) check = false;
+                if (i < 0 && i != -1000) check = true;
             }
             return check;
         }
@@ -275,7 +270,7 @@ namespace Фоновая4._1
                 if (weather.temperature[0, j] != -1000 && weather.temperature[0, i] != -1000)
                 {
                     if (weather.temperature[0, j] == weather2.temperature[0, i]) return true;
-                    else return false;
+                    else return false; 
                 }
             }
             return false;
