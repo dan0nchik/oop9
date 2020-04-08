@@ -265,15 +265,20 @@ namespace Фоновая4._1
 
         public static bool operator &(MatrixWeather weather, MatrixWeather weather2)
         {
-            for (int j = 0, i = 0; j < weather.temperature.GetLength(1) && i < weather2.temperature.GetLength(1); i++, j++)
+            //count = меньшее кол-во недель
+            int count;
+            if (weather > weather2) count = weather2.temperature.GetLength(0);
+            else count = weather.temperature.GetLength(0);
+            Console.WriteLine(count);
+            for (int i = 0; i < count; i++)
             {
-                if (weather.temperature[0, j] != -1000 && weather.temperature[0, i] != -1000)
+                for (int j = 0; j < 6; j++)
                 {
-                    if (weather.temperature[0, j] == weather2.temperature[0, i]) return true;
-                    else return false; 
+                    if (weather[i, j] != weather2[i, j] && weather[i, j] != -1000 && weather2[i, j] != -1000) return false;
                 }
             }
-            return false;
+            return true;
+            
         }
 
         public int this[int week, int day]
@@ -479,7 +484,7 @@ namespace Фоновая4._1
                 weather.Output();
                 Console.WriteLine("2 дневник:");
                 weather2.Output();
-                Console.WriteLine($"Результат попарного сравнения: {weather & weather2} (проверяется 1 число в обоих дневниках)");
+                Console.WriteLine($"Результат попарного сравнения: {weather & weather2}");
             }
             if (input == 12)
             {
