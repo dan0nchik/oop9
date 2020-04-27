@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +38,7 @@ namespace Фоновая5._2
             }
             
         }
-        public int A{
+        public virtual int A{
             get
             {
                 return a;
@@ -58,7 +59,7 @@ namespace Фоновая5._2
                 catch(Exception e) { Console.WriteLine(e.Message);}
             }
         }
-        public int B
+        public virtual int B
         {
             get
             {
@@ -81,7 +82,7 @@ namespace Фоновая5._2
             }
         }
 
-        public double Beta
+        public virtual double Beta
         {
             get
             {
@@ -95,10 +96,8 @@ namespace Фоновая5._2
                     {
                         throw new Exception("Угол либо меньше 0, либо больше 180!");
                     }
-                    else
-                    {
-                        beta = value;
-                    }
+
+                    beta = value;
                 }
                 catch (Exception e) { Console.WriteLine(e.Message); }
             }
@@ -112,7 +111,7 @@ namespace Фоновая5._2
             }
         }
 
-        public bool isSpecialCaseTriangle
+        public virtual bool isSpecialCaseTriangle
         {
             get
             {
@@ -129,23 +128,123 @@ namespace Фоновая5._2
             }
         }
 
-        public double Area()
+        public virtual double Area()
         {
             return a * b * Math.Sin(ToRads(beta));
         }
 
-        public void Show()
+        public virtual void Show()
         {
             Console.WriteLine($"a: {a} \n b: {b} \n beta: {beta}");
         }
 
-        public double Perimeter()
+        public virtual double Perimeter()
         {
             return a + b + StoronaC;
         }
 
     }
 
+    class PrTriangle : Triangle
+    {
+        public PrTriangle():base()
+        {
+            beta = 90;
+        }
+            
+        public PrTriangle(int a, int b) : base(a,b,90)
+        {
+
+        }
+
+        public override bool isSpecialCaseTriangle
+        {
+            get
+            {
+                if (a == b) return true;
+                return false;
+            }
+        }
+
+        public override double Beta
+        {
+            get
+            {
+                return beta;
+            }
+            set
+            {
+                beta = 90; throw new Exception("Нельзя менять угол!"); }
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            Console.WriteLine("Треугольник прямоугльный");
+        }
+
+    }
+
+    class RavnostorTriangle:Triangle
+    {
+        public RavnostorTriangle()
+        {
+            a = b;
+            beta = 60;
+        }
+
+        public override double Beta
+        {
+            get
+            {
+                return 60;
+            }
+            set
+            {
+                beta = 60; throw new Exception("Угол нельзя менять!");
+            }
+
+        }
+
+        public override int A
+        {
+            get
+            {
+                return a;
+            } set
+            {
+                if(b != a) throw new Exception("У стороны б другое значение!");
+            }
+        }
+
+        public override int B
+        {
+            get
+            {
+                return b;
+            }
+            set
+            {
+                if (a != b) throw new Exception("У стороны б другое значение!");
+            }
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            Console.WriteLine("Треугольник равносторонний");
+        }
+
+        public override double Area()
+        {
+            return a*a*Math.Sqrt(3)/4;
+        }
+
+        public override double Perimeter()
+        {
+            return a*3;
+        }
+    }
     class Program
     {
         static void Main(string[] args)
