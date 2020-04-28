@@ -16,7 +16,7 @@ namespace Фоновая5._2
         public Triangle()
         {
             a = 3;
-            b = 3;
+            b = 4;
             beta = 30;
         }
 
@@ -24,47 +24,42 @@ namespace Фоновая5._2
         {
             try
             {
-                if (a < 0 || b < 0 || a > b + StoronaC || b > a + StoronaC || beta < 0 || b > 180) throw new Exception("Неправильная сторона или угол!");
-                else
-                {
-                        this.a = a;
-                        this.b = a;
-                        this.b = a;
-                }
+                if (a < 0 || b < 0 || a > b + StoronaC || b > a + StoronaC || beta < 0 || b > 180)
+                    throw new Exception("Неправильная сторона или угол!");
+                this.a = a;
+                this.b = a;
+                this.b = a;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            
+
         }
-        public virtual int A{
-            get
-            {
-                return a;
-            }
+
+        public virtual int A
+        {
+            get { return a; }
             set
             {
                 try
                 {
-                    if(value < 0 || b+StoronaC < value)
+                    if (value < 0 || b + StoronaC < value)
                     {
                         throw new Exception("Сторона либо меньше 0, либо больше суммы 2х других сторон!");
                     }
-                    else
-                    {
-                        a = value;
-                    }
+                    a = value;
                 }
-                catch(Exception e) { Console.WriteLine(e.Message);}
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
+
         public virtual int B
         {
-            get
-            {
-                return b;
-            }
+            get { return b; }
             set
             {
                 try
@@ -73,21 +68,19 @@ namespace Фоновая5._2
                     {
                         throw new Exception("Сторона либо меньше 0, либо больше суммы 2х других сторон!");
                     }
-                    else
-                    {
-                        b = value;
-                    }
+
+                    b = value;
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
 
         public virtual double Beta
         {
-            get
-            {
-                return b;
-            }
+            get { return b; }
             set
             {
                 try
@@ -99,16 +92,18 @@ namespace Фоновая5._2
 
                     beta = value;
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
+
         public double ToRads(double beta) => beta * Math.PI / 180;
+
         public double StoronaC
         {
-            get
-            {
-                return Math.Sqrt(a * a + b * b - a * b * Math.Cos(ToRads(beta)));
-            }
+            get { return Math.Sqrt(a * a + b * b - a * b * Math.Cos(ToRads(beta))); }
         }
 
         public virtual bool isSpecialCaseTriangle
@@ -122,10 +117,7 @@ namespace Фоновая5._2
 
         public int MiddleLine
         {
-            get
-            {
-                return a / 2;
-            }
+            get { return a / 2; }
         }
 
         public virtual double Area()
@@ -135,7 +127,7 @@ namespace Фоновая5._2
 
         public virtual void Show()
         {
-            Console.WriteLine($"a: {a} \n b: {b} \n beta: {beta}");
+            Console.WriteLine($"a: {a}\nb: {b}\nbeta: {beta}");
         }
 
         public virtual double Perimeter()
@@ -147,12 +139,12 @@ namespace Фоновая5._2
 
     class PrTriangle : Triangle
     {
-        public PrTriangle():base()
+        public PrTriangle() : base()
         {
             beta = 90;
         }
-            
-        public PrTriangle(int a, int b) : base(a,b,90)
+
+        public PrTriangle(int a, int b) : base(a, b, 90)
         {
 
         }
@@ -168,24 +160,24 @@ namespace Фоновая5._2
 
         public override double Beta
         {
-            get
-            {
-                return beta;
-            }
+            get { return beta; }
             set
             {
-                beta = 90; throw new Exception("Нельзя менять угол!"); }
+                beta = 90;
+                throw new Exception("Нельзя менять угол!");
+            }
         }
 
         public override void Show()
         {
-            base.Show();
             Console.WriteLine("Треугольник прямоугльный");
+            base.Show();
+            
         }
 
     }
 
-    class RavnostorTriangle:Triangle
+    class RavnostorTriangle : Triangle
     {
         public RavnostorTriangle()
         {
@@ -195,61 +187,67 @@ namespace Фоновая5._2
 
         public override double Beta
         {
-            get
-            {
-                return 60;
-            }
+            get { return 60; }
             set
             {
-                beta = 60; throw new Exception("Угол нельзя менять!");
+                beta = 60;
+                throw new Exception("Угол нельзя менять!");
             }
 
         }
 
         public override int A
         {
-            get
+            get { return a; }
+            set
             {
-                return a;
-            } set
-            {
-                if(b != a) throw new Exception("У стороны б другое значение!");
+                if (b.Equals(null)) throw new Exception("У стороны б нет значения!");
             }
         }
 
         public override int B
         {
-            get
-            {
-                return b;
-            }
+            get { return b; }
             set
             {
-                if (a != b) throw new Exception("У стороны б другое значение!");
+                if (a.Equals(null)) throw new Exception("У стороны а нет значения!");
             }
         }
 
         public override void Show()
         {
-            base.Show();
             Console.WriteLine("Треугольник равносторонний");
+            base.Show();
+            
         }
 
         public override double Area()
         {
-            return a*a*Math.Sqrt(3)/4;
+            return a * a * Math.Sqrt(3) / 4;
         }
 
         public override double Perimeter()
         {
-            return a*3;
+            return a * 3;
         }
     }
+
     class Program
     {
         static void Main(string[] args)
         {
-
+            var tri = new Triangle[3];
+            tri[0] = new Triangle();
+            tri[1] = new RavnostorTriangle();
+            tri[2] = new PrTriangle();
+            foreach (var i in tri)
+            {
+                i.Show();
+                Console.WriteLine($"Площадь: {i.Area()}");
+                Console.WriteLine($"Периметр: {i.Perimeter()}");
+                Console.WriteLine($"Равнобедренный: {i.isSpecialCaseTriangle}\n");
+            }
+            Console.ReadKey();
         }
     }
 }
