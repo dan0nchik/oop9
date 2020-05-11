@@ -22,18 +22,11 @@ namespace Фоновая5._2
 
         public Triangle(int a, int b, double beta)
         {
-            try
-            {
-                if (a < 0 || b < 0 || a > b + StoronaC || b > a + StoronaC || beta < 0 || b > 180)
-                    throw new Exception("Неправильная сторона или угол!");
+
                 this.a = a;
                 this.b = a;
                 this.b = a;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+
 
         }
 
@@ -139,9 +132,9 @@ namespace Фоновая5._2
 
     class PrTriangle : Triangle
     {
-        public PrTriangle() : base()
+        public PrTriangle() : base(1,1,90)
         {
-            beta = 90;
+           
         }
 
         public PrTriangle(int a, int b) : base(a, b, 90)
@@ -161,11 +154,6 @@ namespace Фоновая5._2
         public override double Beta
         {
             get { return beta; }
-            set
-            {
-                beta = 90;
-                throw new Exception("Нельзя менять угол!");
-            }
         }
 
         public override void Show()
@@ -179,20 +167,20 @@ namespace Фоновая5._2
 
     class RavnostorTriangle : Triangle
     {
-        public RavnostorTriangle()
+        public RavnostorTriangle():base(3,3,60)
         {
-            a = b;
-            beta = 60;
+
+        }
+
+        public RavnostorTriangle(int a, double beta) : base(a,a,beta)
+        {
+
         }
 
         public override double Beta
         {
             get { return 60; }
-            set
-            {
-                beta = 60;
-                throw new Exception("Угол нельзя менять!");
-            }
+
 
         }
 
@@ -201,7 +189,8 @@ namespace Фоновая5._2
             get { return a; }
             set
             {
-                if (b.Equals(null)) throw new Exception("У стороны б нет значения!");
+                a = b = value;
+                
             }
         }
 
@@ -210,7 +199,7 @@ namespace Фоновая5._2
             get { return b; }
             set
             {
-                if (a.Equals(null)) throw new Exception("У стороны а нет значения!");
+                b = a = value;
             }
         }
 
