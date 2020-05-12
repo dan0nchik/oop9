@@ -21,5 +21,12 @@ namespace WinForms3
             if (button1.Text == "НАЖМИ МЕНЯ") button1.Text= "Вы нажа-а-а-а-ли меня!!!!";
             else Close();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            button1.Text = "НАЖМИ МЕНЯ";
+            MaximizeBox = false;
+            Text = "НАЖМИ МЕНЯ";
+        }
     }
 }
