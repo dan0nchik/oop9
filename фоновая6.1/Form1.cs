@@ -16,8 +16,11 @@ namespace фоновая6._1
         {
             InitializeComponent();
         }
-        public Size defaultASize;
-        public Point defaultBLocation;
+        private Size defaultASize;
+        private Point defaultBLocation;
+        private static Random rand = new Random();
+        private int max = byte.MaxValue + 1;//256
+        private int r, g, b;//color
         private void Form1_Load(object sender, EventArgs e)
         {
             defaultASize = A.Size;
@@ -25,9 +28,11 @@ namespace фоновая6._1
         }
         private void A_Click(object sender, EventArgs e)
         {
+            r = rand.Next(max);
+            g = rand.Next(max);
+            b = rand.Next(max);
+            B.BackColor = Color.FromArgb(r, g, b);
             int xB = B.Location.X, yB = B.Location.Y;
-            Console.WriteLine(ActiveForm.Size.Width);
-            Console.WriteLine(B.Right);
             B.Location = new Point(xB+4, yB+2);
             if(B.Right >= ActiveForm.Size.Width-10 || B.Bottom >= ActiveForm.Size.Height-10)
             {
@@ -38,7 +43,10 @@ namespace фоновая6._1
         private void B_Click(object sender, EventArgs e)
         {
             int aW = A.Size.Width, aH = A.Size.Height;
-
+            r = rand.Next(max);
+            g = rand.Next(max);
+            b = rand.Next(max);
+            A.BackColor = Color.FromArgb(r, g, b);
             A.Size = new Size(aW-2, aH);
             if (A.Size.Width == A.MinimumSize.Width)
             {
