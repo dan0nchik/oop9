@@ -45,7 +45,7 @@
             // 
             // B
             // 
-            this.B.Location = new System.Drawing.Point(447, 156);
+            this.B.Location = new System.Drawing.Point(383, 156);
             this.B.Name = "B";
             this.B.Size = new System.Drawing.Size(232, 103);
             this.B.TabIndex = 1;

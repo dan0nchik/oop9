@@ -34,7 +34,7 @@ namespace фоновая6._1
             B.BackColor = Color.FromArgb(r, g, b);
             int xB = B.Location.X, yB = B.Location.Y;
             B.Location = new Point(xB+4, yB+2);
-            if(B.Right >= ActiveForm.Size.Width-10 || B.Bottom >= ActiveForm.Size.Height-10)
+            if(B.Right >= ActiveForm.Size.Width-15 || B.Bottom >= ActiveForm.Size.Height-40)
             {
                 B.Location = defaultBLocation;
             }
